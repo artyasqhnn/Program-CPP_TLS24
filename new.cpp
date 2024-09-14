@@ -1,29 +1,78 @@
-#include <iostream>  // Library untuk input dan output
-#include <iomanip>   // Library untuk format output
-int main ();
+#include <iostream>
 using namespace std;
 
-// Fungsi untuk konversi Reamur ke Celsius
-double reamurToCelsius(double reamur) {
-    return reamur * 5.0 / 4.0;
-}
-
-// Fungsi untuk konversi Celsius ke Fahrenheit
 double celsiusToFahrenheit(double celsius) {
-    return (celsius * 9.0 / 5.0) + 32.0;
+    return (celsius * 9 / 5) + 32;
 }
 
-// Fungsi untuk konversi Kelvin ke Reamur
-double kelvinToReamur(double kelvin) {
-    return (kelvin - 273.15) * 4.0 / 5.0;
+double celsiusToKelvin(double celsius) {
+    return celsius + 273.15;
+}
+
+double fahrenheitToCelsius(double fahrenheit) {
+    return (fahrenheit - 32) * 5 / 9;
+}
+
+double fahrenheitToKelvin(double fahrenheit) {
+    return (fahrenheit - 32) * 5 / 9 + 273.15;
+}
+
+double kelvinToCelsius(double kelvin) {
+    return kelvin - 273.15;
+}
+
+double kelvinToFahrenheit(double kelvin) {
+    return (kelvin - 273.15) * 9 / 5 + 32;
 }
 
 int main() {
-    // Deklarasi variabel untuk suhu
-    double reamur, celsius, kelvin;
+    int pilihan;
+    double suhu, hasil;
+    
+    cout<<"Pilih konversi suhu: \n";
+    cout<<"1. Celcius ke Fahrenheit\n";
+    cout<<"2. Celcius ke Kelvin\n";
+    cout<<"3. Fahrenheit ke Celcius\n";
+    cout<<"4. Fahrenheit ke Kelvin\n";
+    cout<<"5. Kelvin ke Celcius\n";
+    cout<<"6. Kelvin ke Fahrenheit\n";
+    
+    cout<<"Masukkan pilihan (1-6): ";
+    cin>>pilihan;
+    
+    cout<<"Masukkan suhu yang ingin dikonversi: ";
+    cin>>suhu;
+    
+    switch (pilihan) {
+        case 1:
+            hasil=celsiusToFahrenheit(suhu);
+            cout<<"Hasil: "<<hasil<<" Fahrenheit\n";
+            break;
+        case 2:
+            hasil=celsiusToKelvin(suhu);
+            cout<<"Hasil: "<<hasil<<" Kelvin\n";
+            break;
+        case 3:
+            hasil=fahrenheitToCelsius(suhu);
+            cout<<"Hasil: "<<hasil<<" Celcius\n";
+            break;
+        case 4:
+            hasil=fahrenheitToKelvin(suhu);
+            cout<<"Hasil: "<<hasil<<" Kelvin\n";
+            break;
+        case 5:
+            hasil=kelvinToCelsius(suhu);
+            cout<<"Hasil: "<<hasil<<" Celcius\n";
+            break;
+        case 6:
+            hasil=kelvinToFahrenheit(suhu);
+            cout<<"Hasil: "<<hasil<<" Fahrenheit\n";
+            break;
+        default:
+            cout<<"Pilihan tidak valid.\n";
+    }
+}
 
-    // Input suhu dalam Reamur
-    cout<<"Masukkan suhu dalam Reamur: ";
     cin>>reamur;
 
     // Konversi Reamur ke Celsius
